@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Migrations {
+  id         Int       @id @default(autoincrement()) @db.UnsignedInt
+  uuid       String    @unique @default(uuid())
+  migration  String    @db.VarChar(255)
+  batch      Int
+  created_at DateTime? @default(now()) @db.Timestamp(0)
+  updated_at DateTime? @updatedAt
+  deleted_at DateTime? @db.Timestamp(0)
+}
+
+model Users {
+  id                Int       @id @default(autoincrement())
+  uuid              String    @unique @default(uuid())
+  name              String?   @unique @db.VarChar(255)
+  email             String?   @db.VarChar(255)
+  activation_code   String?   @unique(map: "activation_code") @db.VarChar(40)
+  resetpass_code    String?   @unique(map: "resetpass_code") @db.VarChar(40)
+  email_verified_at DateTime? @db.DateTime(0)
+  password          String?   @db.VarChar(255)
+  remember_token    String?   @db.VarChar(100)
+  created_at        DateTime? @default(now()) @db.Timestamp(0)
+  updated_at        DateTime? @updatedAt
+  deleted_at        DateTime? @db.Timestamp(0)
+  social_credential String?   @db.VarChar(255)
+  social_provider   String?
+}
+
+model AppClients {
+  id         Int       @id @default(autoincrement()) @db.UnsignedInt
+  uuid       String    @unique @default(uuid())
+  name       String?   @unique @db.VarChar(255)
+  email      String?   @db.VarChar(255)
+  password   String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(0)
+  updated_at DateTime? @updatedAt
+  deleted_at DateTime? @db.Timestamp(0)
+}

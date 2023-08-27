@@ -1,0 +1,1763 @@
+{
+  "info": {
+    "_postman_id": "93339e45-d29a-4eab-8bee-dd5e108b5aa3",
+    "name": "Local - xendit-payment-gateway-sandbox.id",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21129903"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login - /auth/login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "naufal.berlian.99@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "password",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": [
+            {
+              "name": "Failed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "{{email}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{password}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "login"]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "107"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6b-N+YuQp5SpQXt5x6joNePO8xqTYU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 31 May 2023 17:53:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Invalid email and password\",\n    \"error\": {\n        \"status\": 401,\n        \"name\": \"INVALID_CREDENTIAL\"\n    }\n}"
+            },
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "admin@mail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "login"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "322"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"142-CODGwu44mIAG+cDhKxiAZPbPGjw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 31 May 2023 18:18:35 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Login success\",\n    \"results\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODU1NTcxMTUsImV4cCI6MTY4NTU1ODAxNX0.vvrEZc_iChLnWMvmefIQ28pAuUcYkaF_f13dUD2O284\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODU1NTcxMTV9.9iEpgUPPRXZe9d8jN_Hv7Fr5XW7emJ-0FxIwsidaeJ8\"\n    }\n}"
+            },
+            {
+              "name": "Failed - Body validation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "pa",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "login"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "155"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"9b-znVpOEWyKZBvF+Ehsb9ekSApbpk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 31 May 2023 18:19:41 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"admin\",\n            \"msg\": \"Email format is invalid\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register - /auth/register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "naufal.berlian.99@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "berlian",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "password",
+                  "type": "text"
+                },
+                {
+                  "key": "confirmPassword",
+                  "value": "password",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "admin@mail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "fullName",
+                      "value": "Admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "password",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/register",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "register"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-fwEneEF60CDA+FUUc/34tYg0VQo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 31 May 2023 18:15:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Register success\"\n}"
+            },
+            {
+              "name": "Failed - Body validation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "admin@mail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "fullName",
+                      "value": "Admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "passwor",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "passwo",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/register",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "register"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "187"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"bb-THpvSIEosyI7vlNvEse7JWAGIGE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 31 May 2023 18:16:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"passwo\",\n            \"msg\": \"confirm password must same with new password\",\n            \"path\": \"confirmPassword\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "Failed - Email already taken",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "admin@mail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "fullName",
+                      "value": "Admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "passwor",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "passwor",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/register",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "register"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "102"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"66-sA/BcCB0t96YI3WS+Z6PLZ5HIkU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 31 May 2023 18:16:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Email already taken\",\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"EMAIL_ALREADY_IN_USE\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Google Login - /auth/login/google",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Naufal",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "berlian99@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "avatar",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "social_provider",
+                  "value": "GOOGLE",
+                  "type": "text"
+                },
+                {
+                  "key": "social_credential",
+                  "value": "askdjasjdkeijdewdeajkdieajdmakl11234ijqj2j3",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login/google",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login", "google"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "name",
+                      "value": "Naufal",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "berlian99@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "avatar",
+                      "value": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "social_provider",
+                      "value": "GOOGLE",
+                      "type": "text"
+                    },
+                    {
+                      "key": "social_credential",
+                      "value": "askdjasjdkeijdewdeajkdieajdmakl11234ijqj2j3",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login/google",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "login", "google"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "527"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20f-nSYrUd4cqHkL0tVSyxOcMjjuCvQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 01 Jun 2023 10:25:07 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Login success\",\n    \"results\": {\n        \"userInfo\": {\n            \"uuid\": \"9f29205d-0a80-46b6-897e-b0e408d17342\",\n            \"name\": \"berlian99@gmail.com\",\n            \"email\": \"berlian99@gmail.com\",\n            \"social_provider\": \"GOOGLE\"\n        },\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXVpZCI6IjlmMjkyMDVkLTBhODAtNDZiNi04OTdlLWIwZTQwOGQxNzM0MiIsImVtYWlsIjoiYmVybGlhbjk5QGdtYWlsLmNvbSIsImxvZ2dlZF9hdCI6IjIwMjMtMDYtMDFUMTA6MjU6MDcuODIxWiIsImlhdCI6MTY4NTYxNTEwNywiZXhwIjoxNjg1NzAxNTA3fQ.zuQqaJBC1nlJ3uT6fkuj5pTqVkB0Mlf14Prr08-zOj8\",\n        \"tokenExpired\": \"1d\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Forgot Password - /auth/forgotPassword",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "id",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "naufal.berlian.99@gmail.com",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/forgotPassword",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "forgotPassword"]
+            },
+            "description": "After success sent forgot password code to email, next step :\n\nSend the code and new password to endpoint Reset Password - /auth/resetPassword"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept-Language",
+                    "value": "id",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "naufal.berlian.99@gmail.com",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/forgotPassword",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "forgotPassword"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "121"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"79-Jg2J8o7Jk0tysZlySAOM8j4YE1k\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 11:09:58 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Success, the reset password code has been sent to naufal.berlian.99@gmail.com\",\n    \"results\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Email Verification - /auth/sendEmailVerification",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "naufal.berlian.99@gmail.com",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/sendEmailVerification",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "sendEmailVerification"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "naufal.berlian.99@gmail.com",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/sendEmailVerification",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "sendEmailVerification"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7d-VuQdfzbhEv3W+GRDrKqff9vmBgY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 11:11:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Success, the email verification code has been sent to naufal.berlian.99@gmail.com\",\n    \"results\": null\n}"
+            },
+            {
+              "name": "Failed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "naufal.berlian.99@gmail.co",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/sendEmailVerification",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "sendEmailVerification"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "93"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5d-34I64+Mnni3EfaQSFXDXzG9Y2Wk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 11:15:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Email not found\",\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"EMAIL_NOT_FOUND\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Verify Email - /auth/verifyEmail",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "naufal.berlian.99@gmail.com",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/verifyEmail?code=851553",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "verifyEmail"],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "851553"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Failed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "email",
+                      "value": "naufal.berlian.99@gmail.com",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/verifyEmail?code=851553",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "verifyEmail"],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "851553"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "116"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"74-jTqnf1eeOldI/K04u/vsWc4k6RU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 11:29:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Email and the code given are not match\",\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"EMAIL_NOT_FOUND\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Reset Password - /auth/resetPassword",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "code",
+                  "value": "407735",
+                  "type": "text"
+                },
+                {
+                  "key": "newPassword",
+                  "value": "passwordd",
+                  "type": "text"
+                },
+                {
+                  "key": "confirmPassword",
+                  "value": "passwordd",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/resetPassword",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "resetPassword"]
+            }
+          },
+          "response": [
+            {
+              "name": "Failed - Wrong Code",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "code",
+                      "value": "484836",
+                      "type": "text"
+                    },
+                    {
+                      "key": "newPassword",
+                      "value": "passwordd",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "passwordd",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/resetPassword",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "resetPassword"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "120"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"78-Kk2asXXWOV8d5kBrB+i34n8oYbI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 11:41:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Code given are available in any records\",\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"CODE_NOT_AVAILABLE\"\n    }\n}"
+            },
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "code",
+                      "value": "407735",
+                      "type": "text"
+                    },
+                    {
+                      "key": "newPassword",
+                      "value": "passwordd",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "passwordd",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/resetPassword",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "resetPassword"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "62"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3e-O0R5bqpgm/3s4XX9FvO/q1k3EUc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 11:44:16 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Success, password already updated\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Change Password - /auth/changePassword",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "currentPassword",
+                  "value": "passwordd",
+                  "type": "text"
+                },
+                {
+                  "key": "confirmPassword",
+                  "value": "password",
+                  "type": "text"
+                },
+                {
+                  "key": "newPassword",
+                  "value": "password",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/changePassword",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "changePassword"]
+            }
+          },
+          "response": [
+            {
+              "name": "Failed - Wrong Current Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "currentPassword",
+                      "value": "passwor",
+                      "type": "text"
+                    },
+                    {
+                      "key": "newPassword",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/changePassword",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "changePassword"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "107"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6b-5NCIxr8rD3WKjEucJN4NIiwlbdk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 12:04:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Current password not match\",\n    \"error\": {\n        \"status\": 400,\n        \"name\": \"INVALID_CREDENTIAL\"\n    }\n}"
+            },
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "currentPassword",
+                      "value": "passwordd",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirmPassword",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "newPassword",
+                      "value": "password",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/changePassword",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["auth", "changePassword"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "62"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3e-O0R5bqpgm/3s4XX9FvO/q1k3EUc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Jun 2023 12:06:41 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Success, password already updated\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Profile - /profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["profile"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Store",
+      "item": [
+        {
+          "name": "All Store - /store/",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/store/?start=0&limit=13",
+              "host": ["{{baseUrl}}"],
+              "path": ["store", ""],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "13"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Failed - JWT Expired",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/store/",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["store", ""]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "151"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"97-fvxeTfhYEAeEZPf6/z4Fe2+t6WY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Jun 2023 14:59:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Authentication failed\",\n    \"error\": {\n        \"name\": \"TokenExpiredError\",\n        \"message\": \"jwt expired\",\n        \"expiredAt\": \"2023-06-04T11:44:32.000Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Store - /store",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "id_owner",
+                  "value": "5",
+                  "description": "user id",
+                  "type": "text"
+                },
+                {
+                  "key": "store_name",
+                  "value": "Cibiru",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "088888888888",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "Cibiru Bandung",
+                  "type": "text"
+                },
+                {
+                  "key": "picture",
+                  "description": "file image",
+                  "type": "file",
+                  "src": "/home/berlian/work/travoy/travoy-v4/travoy_toll_navigation/assets/image/destination.png"
+                },
+                {
+                  "key": "website",
+                  "value": "www.blablabla.com",
+                  "type": "text"
+                },
+                {
+                  "key": "delivery_charge",
+                  "value": "100000",
+                  "type": "text"
+                },
+                {
+                  "key": "social_facebook",
+                  "value": "www.blablabla.com",
+                  "type": "text"
+                },
+                {
+                  "key": "social_instagram",
+                  "value": "www.blablabla.com",
+                  "type": "text"
+                },
+                {
+                  "key": "social_twitter",
+                  "value": "www.blablabla.com",
+                  "type": "text"
+                },
+                {
+                  "key": "latitude",
+                  "value": "-6.901192863381545",
+                  "description": "-6.901192863381545",
+                  "type": "text"
+                },
+                {
+                  "key": "longitude",
+                  "value": "107.60874079877628",
+                  "description": "107.60874079877628",
+                  "type": "text"
+                },
+                {
+                  "key": "is_active",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "picture",
+                  "value": "testetset.png",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/store",
+              "host": ["{{baseUrl}}"],
+              "path": ["store"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "id_owner",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "store_name",
+                      "value": "Cibiru",
+                      "type": "text"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "address",
+                      "value": "Cibiru Bandung",
+                      "type": "text"
+                    },
+                    {
+                      "key": "picture",
+                      "type": "file",
+                      "src": "/home/berlian/work/travoy/travoy-v4/travoy_toll_navigation/assets/image/destination.png"
+                    },
+                    {
+                      "key": "website",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "delivery_charge",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "social_facebook",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "social_instagram",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "social_twitter",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/store",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["store"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "502"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1f6-gIEtX8rxd9ks6DcgVsLuqH85sRc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 07 Jun 2023 12:25:07 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Success Create Store\",\n    \"results\": {\n        \"id\": 13,\n        \"uuid\": \"39a35865-8411-4d5e-915e-0c7743a15088\",\n        \"store_name\": \"Cibiru\",\n        \"address\": \"Cibiru Bandung\",\n        \"phone\": null,\n        \"picture\": \"destination-png-KJyIexxszXz3qzfroygD.png\",\n        \"website\": null,\n        \"id_owner\": null,\n        \"created_at\": null,\n        \"updated_at\": null,\n        \"deleted_at\": null,\n        \"created_by\": 5,\n        \"updated_by\": null,\n        \"deleted_by\": null,\n        \"social_facebook\": null,\n        \"social_instagram\": null,\n        \"social_twitter\": null,\n        \"is_active\": 0,\n        \"latitude\": null,\n        \"longitude\": null,\n        \"delivery_charge\": 0\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Landing",
+      "item": [
+        {
+          "name": "Services - /landing/services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/landing/services",
+              "host": ["{{baseUrl}}"],
+              "path": ["landing", "services"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Capsters - /landing/capsters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/landing/capsters",
+              "host": ["{{baseUrl}}"],
+              "path": ["landing", "capsters"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stores - /landing/stores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/landing/stores",
+              "host": ["{{baseUrl}}"],
+              "path": ["landing", "stores"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sponsors - /landing/sponsors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/landing/sponsors",
+              "host": ["{{baseUrl}}"],
+              "path": ["landing", "sponsors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "HairStyles - /landing/hairstyles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/landing/sponsors",
+              "host": ["{{baseUrl}}"],
+              "path": ["landing", "sponsors"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{accessToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string",
+      "disabled": true
+    },
+    {
+      "key": "email",
+      "value": "",
+      "type": "string",
+      "disabled": true
+    },
+    {
+      "key": "password",
+      "value": "",
+      "type": "string",
+      "disabled": true
+    }
+  ]
+}
