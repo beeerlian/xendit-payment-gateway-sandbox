@@ -18,17 +18,17 @@ jobs:
           node-version: 18.x
       - run: yarn install
       - run: yarn build
-      - name: Deploy to server via SSH
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          # key: ${{ secrets.PRIVATE_KEY }}
-          port: 22
-          script: |
-            cd /var/www/html/hairnerds-studio-rebuild/backend
-            git pull origin staging
-            git status
-            yarn install --only=prod
-            pm2 restart hairnerds-studio-api@staging
+      # - name: Deploy to server via SSH
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     # key: ${{ secrets.PRIVATE_KEY }}
+      #     port: 22
+      #     script: |
+      #       cd /var/www/html/xendit-payment-gateway-sandbox/backend
+      #       git pull origin staging
+      #       git status
+      #       yarn install --only=prod
+      #       pm2 restart xendit-payment-gateway-sandbox-api@staging
